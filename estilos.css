@@ -1,1 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f0fa;
+  color: #4b2e83;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+#malla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  max-width: 900px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.ramo {
+  background: #cbb9f2; /* morado pastel */
+  border: 2px solid #8a63d2;
+  border-radius: 10px;
+  padding: 18px 15px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(139, 99, 210, 0.3);
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.2;
+  position: relative;
+}
+
+.ramo.aprobado {
+  background: #8a63d2;
+  color: white;
+  border-color: #6a43c0;
+  box-shadow: 0 2px 8px rgba(106, 67, 192, 0.7);
+}
+
+.ramo.bloqueado {
+  background: #e6e0f7;
+  border-color: #b2a8e0;
+  color: #9a8fd4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.ramo:hover:not(.bloqueado):not(.aprobado) {
+  background-color: #bb9fed;
+  border-color: #7c4dca;
+}
+
+/* Marca ✓ o ✗ en la esquina superior derecha */
+.ramo.aprobado::after {
+  content: "✓";
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  font-size: 1.3rem;
+  color: #d1e7dd;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #4b2e83aa;
+}
+
+.ramo.bloqueado::after {
+  content: "✗";
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  font-size: 1.3rem;
+  color: #c4c1d8;
+  font-weight: bold;
+}
+
+#reset {
+  background: #8a63d2;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+#reset:hover {
+  background: #6a43c0;
+}
 
