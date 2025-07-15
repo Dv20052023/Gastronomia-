@@ -1,104 +1,103 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f0fa;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f7fc;
   color: #4b2e83;
   text-align: center;
-  padding: 20px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 30px 10px;
 }
 
 h1 {
+  font-size: 2rem;
   margin-bottom: 30px;
+  color: #6a43c0;
 }
 
-#malla {
+#contenedor-malla {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-  max-width: 900px;
-  width: 100%;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.semestre-titulo {
+  grid-column: 1 / -1;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 25px 0 10px;
+  color: #8a63d2;
+  border-bottom: 2px dashed #d2c0f5;
+  padding-bottom: 5px;
 }
 
 .ramo {
-  background: #cbb9f2; /* morado pastel */
-  border: 2px solid #8a63d2;
-  border-radius: 10px;
-  padding: 18px 15px;
+  background: #dec9fa;
+  border: 2px solid #b697f2;
+  border-radius: 12px;
+  padding: 18px;
   cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 2px 5px rgba(139, 99, 210, 0.3);
-  min-height: 90px;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 600;
+  font-size: 1rem;
+  min-height: 80px;
+  box-shadow: 0 4px 10px rgba(145, 120, 200, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 1rem;
   text-align: center;
   line-height: 1.2;
-  position: relative;
 }
 
 .ramo.aprobado {
-  background: #8a63d2;
+  background: #9e7de2;
   color: white;
-  border-color: #6a43c0;
-  box-shadow: 0 2px 8px rgba(106, 67, 192, 0.7);
+  border-color: #6f4cc7;
 }
 
 .ramo.bloqueado {
-  background: #e6e0f7;
-  border-color: #b2a8e0;
-  color: #9a8fd4;
+  background: #eee8f8;
+  border-color: #d8d0f0;
+  color: #a8a2c1;
   cursor: not-allowed;
-  box-shadow: none;
 }
 
 .ramo:hover:not(.bloqueado):not(.aprobado) {
-  background-color: #bb9fed;
-  border-color: #7c4dca;
+  background: #c3a5f2;
+  transform: scale(1.03);
 }
 
-/* Marca ✓ o ✗ en la esquina superior derecha */
+/* ✓ y ✗ indicadores */
+.ramo::after {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 .ramo.aprobado::after {
   content: "✓";
-  position: absolute;
-  top: 5px;
-  right: 8px;
-  font-size: 1.3rem;
-  color: #d1e7dd;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px #4b2e83aa;
+  color: #ffffff;
 }
-
 .ramo.bloqueado::after {
   content: "✗";
-  position: absolute;
-  top: 5px;
-  right: 8px;
-  font-size: 1.3rem;
-  color: #c4c1d8;
-  font-weight: bold;
+  color: #ccc2e5;
 }
 
+/* Reset Button */
 #reset {
+  margin-top: 30px;
   background: #8a63d2;
-  border: none;
   color: white;
-  padding: 10px 25px;
+  border: none;
+  padding: 12px 25px;
   border-radius: 8px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
-  max-width: 200px;
-  margin-top: 10px;
+  transition: background 0.3s ease;
 }
 
 #reset:hover {
-  background: #6a43c0;
+  background: #6b45b2;
 }
-
